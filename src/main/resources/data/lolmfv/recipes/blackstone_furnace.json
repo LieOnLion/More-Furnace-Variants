@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "furnace",
+  "key": {
+    "#": {
+      "item": "minecraft:blackstone"
+    }
+  },
+  "pattern": [
+    "###",
+    "# #",
+    "###"
+  ],
+  "result": {
+    "item": "lolmfv:blackstone_furnace"
+  }
+}
