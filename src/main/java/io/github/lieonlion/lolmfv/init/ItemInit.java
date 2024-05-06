@@ -8,7 +8,6 @@ import net.minecraft.item.ItemGroups;
 import net.minecraft.item.Items;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
-import net.minecraft.util.Identifier;
 
 public class ItemInit {
     public static BlockItem DEEPSLATE_FURNACE_I = new BlockItem(BlockInit.DEEPSLATE_FURNACE, (new Item.Settings()));
@@ -20,7 +19,7 @@ public class ItemInit {
     }
 
     public static void registerItem(String name, Item item, Item after) {
-        Registry.register(Registries.ITEM, new Identifier(MoreFurnaceVariants.MODID, name), item);
+        Registry.register(Registries.ITEM, MoreFurnaceVariants.asId(name), item);
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.FUNCTIONAL).register(entries -> entries.addAfter(after, item));
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.REDSTONE).register(entries -> entries.addAfter(after, item));
     }

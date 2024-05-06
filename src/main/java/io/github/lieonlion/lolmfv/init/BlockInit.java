@@ -3,13 +3,13 @@ package io.github.lieonlion.lolmfv.init;
 import io.github.lieonlion.lolmfv.MoreFurnaceVariants;
 import io.github.lieonlion.lolmfv.block.MoreFurnaceBlock;
 import io.github.lieonlion.lolmfv.block.entity.MoreFurnaceBlockEntity;
+import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.minecraft.block.Block;
 import net.minecraft.block.MapColor;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.sound.BlockSoundGroup;
-import net.minecraft.util.Identifier;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,12 +24,12 @@ public class BlockInit {
         registerBlock("deepslate_furnace", DEEPSLATE_FURNACE);
         registerBlock("blackstone_furnace", BLACKSTONE_FURNACE);
 
-        MORE_FURNACE_BLOCK_ENTITY = Registry.register(Registries.BLOCK_ENTITY_TYPE, new Identifier(MoreFurnaceVariants.MODID, "more_furnace"),
-                BlockEntityType.Builder.create(MoreFurnaceBlockEntity::new, BlockInit.blocks.toArray(Block[]::new)).build());
+        MORE_FURNACE_BLOCK_ENTITY = Registry.register(Registries.BLOCK_ENTITY_TYPE, MoreFurnaceVariants.asId("more_furnace"),
+                FabricBlockEntityTypeBuilder.create(MoreFurnaceBlockEntity::new, BlockInit.blocks.toArray(Block[]::new)).build());
     }
 
     private static void registerBlock(String name, Block block) {
-        Registry.register(Registries.BLOCK, new Identifier(MoreFurnaceVariants.MODID, name), block);
-        blocks.add(block); 
+        Registry.register(Registries.BLOCK, MoreFurnaceVariants.asId(name), block);
+        blocks.add(block);
     }
 }

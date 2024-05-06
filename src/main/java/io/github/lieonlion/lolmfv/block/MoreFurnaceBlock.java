@@ -46,8 +46,4 @@ public class MoreFurnaceBlock extends FurnaceBlock {
     public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
         return new MoreFurnaceBlockEntity(pos, state);
     }
-
-    public String getType() {
-        return type;
-    }
 }

@@ -18,7 +18,7 @@ public class MoreFurnaceBlockEntity extends AbstractFurnaceBlockEntity {
 
     @Override
     protected Text getContainerName() {
-        return Text.translatable("container." + getBlock().getType() + "_furnace");
+        return Text.translatable("container." + getBlock().type + "_furnace");
     }
 
     @Override
@@ -27,8 +27,6 @@ public class MoreFurnaceBlockEntity extends AbstractFurnaceBlockEntity {
     }
 
     protected MoreFurnaceBlock getBlock() {
-        if (!this.getWorld().isClient)
-            return (MoreFurnaceBlock) getCachedState().getBlock();
-        return null;
+        return (MoreFurnaceBlock) getCachedState().getBlock();
     }
 }
