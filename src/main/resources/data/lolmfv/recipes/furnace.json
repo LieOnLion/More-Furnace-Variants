@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "lolmfv:more_furnace"
+    }
+  ],
+  "result": {
+    "item": "minecraft:furnace"
+  }
+}

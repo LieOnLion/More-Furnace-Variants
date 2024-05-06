@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "furnace",
+  "key": {
+    "#": {
+      "item": "minecraft:cobblestone"
+    }
+  },
+  "pattern": [
+    "###",
+    "# #",
+    "###"
+  ],
+  "result": {
+    "item": "minecraft:furnace"
+  }
+}
