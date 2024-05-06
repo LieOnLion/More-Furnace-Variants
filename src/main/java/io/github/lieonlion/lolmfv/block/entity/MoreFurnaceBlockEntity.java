@@ -10,6 +10,7 @@ import net.minecraft.world.inventory.FurnaceMenu;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.block.entity.AbstractFurnaceBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import org.jetbrains.annotations.NotNull;
 
 public class MoreFurnaceBlockEntity extends AbstractFurnaceBlockEntity {
     public MoreFurnaceBlockEntity(BlockPos pos, BlockState state) {
@@ -17,18 +18,16 @@ public class MoreFurnaceBlockEntity extends AbstractFurnaceBlockEntity {
     }
 
     @Override
-    protected Component getDefaultName() {
-        return Component.translatable("container." + getBlock().getType() + "_furnace");
+    protected @NotNull Component getDefaultName() {
+        return Component.translatable("container." + getBlock().type + "_furnace");
     }
 
     @Override
-    protected AbstractContainerMenu createMenu(int syncId, Inventory playerInventory) {
+    protected @NotNull AbstractContainerMenu createMenu(int syncId, Inventory playerInventory) {
         return new FurnaceMenu(syncId, playerInventory, this, this.dataAccess);
     }
 
     protected MoreFurnaceBlock getBlock() {
-        if (!this.getLevel().isClientSide)
-            return (MoreFurnaceBlock) getBlockState().getBlock();
-        return null;
+        return (MoreFurnaceBlock) getBlockState().getBlock();
     }
 }

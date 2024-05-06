@@ -16,6 +16,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.material.MapColor;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.function.ToIntFunction;
@@ -33,19 +34,17 @@ public class MoreFurnaceBlock extends FurnaceBlock {
     }
 
     private static ToIntFunction<BlockState> litFurnaceLightLevel() {
-        return (blockState) -> {
-            return (Boolean) blockState.getValue(BlockStateProperties.LIT) ? 13 : 0;
-        };
+        return (blockState) -> (Boolean) blockState.getValue(BlockStateProperties.LIT) ? 13 : 0;
     }
 
     @Override
     @Nullable
-    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> type) {
+    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(@NotNull Level level, @NotNull BlockState state, @NotNull BlockEntityType<T> type) {
         return MoreFurnaceBlock.createFurnaceTicker(level, type, BlockInit.MORE_FURNACE_BLOCK_ENTITY.get());
     }
 
     @Override
-    protected void openContainer(Level level, BlockPos pos, Player player) {
+    protected void openContainer(Level level, @NotNull BlockPos pos, @NotNull Player player) {
         BlockEntity blockEntity = level.getBlockEntity(pos);
         if (blockEntity instanceof MoreFurnaceBlockEntity) {
             player.openMenu((MenuProvider)blockEntity);
@@ -55,11 +54,7 @@ public class MoreFurnaceBlock extends FurnaceBlock {
 
     @Nullable
     @Override
-    public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
+    public BlockEntity newBlockEntity(@NotNull BlockPos pos, @NotNull BlockState state) {
         return new MoreFurnaceBlockEntity(pos, state);
-    }
-
-    public String getType() {
-        return type;
     }
 }
