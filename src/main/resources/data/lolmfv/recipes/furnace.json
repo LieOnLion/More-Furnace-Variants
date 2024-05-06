@@ -1,6 +1,5 @@
 {
   "type": "minecraft:crafting_shapeless",
-  "group": "chest",
   "ingredients": [
     {
       "tag": "lolmfv:more_furnace"
