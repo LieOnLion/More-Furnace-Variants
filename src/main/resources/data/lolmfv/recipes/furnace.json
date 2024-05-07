@@ -2,7 +2,7 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "tag": "lolmfv:more_furnace"
+      "tag": "lieonstudio:furnaces"
     }
   ],
   "result": {
