@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "front": "lolmfv:block/blackstone_furnace_front",
+    "side": "lolmfv:block/blackstone_furnace_side",
+    "top": "lolmfv:block/blackstone_furnace_top"
+  }
+}
